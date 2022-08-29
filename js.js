@@ -1,8 +1,6 @@
-const money = 10;
-const income = 15;
-const addExpenses = 3;
-const deposit = 42;
-const mission = 20;
-const period = 5;
-alert('Жми "ок"');
-console.log(money + addExpenses + deposit - income - mission - period);
+const money = 5000; // доход за месяц
+const income = 'Фриланс'; // доп. доход
+const addExpenses = 'коммуналка, транспорт, продукты, отдых'; // расходы
+const deposit = new Boolean(true);
+const mission = 200000; // запланируванная сумма
+const period = 12;
