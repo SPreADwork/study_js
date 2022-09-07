@@ -1,4 +1,4 @@
-const money = 5000; // доход за месяц
+const money = prompt('Ваш месячный доход?'); // доход за месяц
 const income = 'Фриланс'; // доп. доход
 const addExpenses = 'Коммуналка, транспорт, продукты, отдых'; // расходы
 const deposit = new Boolean(true);
