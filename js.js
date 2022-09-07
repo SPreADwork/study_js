@@ -1,6 +1,6 @@
 const money = prompt('Ваш месячный доход?'); // доход за месяц
 const income = 'Фриланс'; // доп. доход
-const addExpenses = 'Коммуналка, транспорт, продукты, отдых'; // расходы
+const addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую'); // расходы
 const deposit = new Boolean(true);
 const mission = 200000; // запланируванная сумма
 const period = 12;
