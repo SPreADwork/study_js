@@ -41,5 +41,10 @@ console.log(addExpenses.length);
 console.log('Период равен ' + period + ' месяцев');
 console.log('Цель заработать ' + mission + '$');
 console.log(addExpenses.toLowerCase(), addExpenses.split(', '));
-const budgetDay = money / 30; // дневной бюджет
-console.log(budgetDay);
+
+// 7) Зная budgetMonth, посчитать за сколько месяцев будет достигнута цель mission, вывести в консоль, округляя в большую сторону (методы объекта Math в помощь)
+console.log('Цель будет достигнута за :', Math.ceil(mission / budgetMonth) + ' месяцев');
+
+// 8) Поправить budgetDay учитывая бюджет на месяц, а не месячный доход. Вывести в консоль  округлив в меньшую сторону 
+const budgetDay = budgetMonth / 30; // дневной бюджет
+console.log('Бюджет на месяц:', Math.floor(budgetDay));
