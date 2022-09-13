@@ -2,7 +2,7 @@
 const money = prompt('Ваш месячный доход?'); // доход за месяц
 const income = 'Фриланс'; // доп. доход
 const addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'продукты, транспорт, комуналка'); // расходы
-// 4) Спросить у пользователя “Есть ли у вас депозит в банке?” и сохранить данные в переменной deposit (булево значение true/false)
+// Спросить у пользователя “Есть ли у вас депозит в банке?” и сохранить данные в переменной deposit (булево значение true/false)
 
 // Вариант 1
 // const deposit = confirm('Есть ли у вас депозит в банке?');
@@ -66,3 +66,11 @@ if (budgetDay >= 1200) {
 } else if (budgetDay < 0) {
     console.log('Что то пошло не так');   
 } 
+
+//1) Объявить функцию getExpensesMonth. Функция возвращает сумму всех обязательных расходов за месяц
+function getExpensesMonth(a, b){
+  return a + b
+}
+let sumAmount = (getExpensesMonth(Number(amount1), Number(amount2)));
+
+console.log(sumAmount);
