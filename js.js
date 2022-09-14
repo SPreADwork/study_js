@@ -81,3 +81,9 @@ getAccumulatedMonth();
 
 // Объявить переменную accumulatedMonth и присвоить ей результат вызова функции getAccumulatedMonth 
 let accumulatedMonth = getAccumulatedMonth();
+
+// Объявить функцию getTargetMonth. Подсчитывает за какой период будет достигнута цель, зная результат месячного накопления (accumulatedMonth) и возвращает результат
+function getTargetMonth() {
+    return Math.ceil(mission / accumulatedMonth);
+}
+getTargetMonth();
