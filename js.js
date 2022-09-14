@@ -68,9 +68,7 @@ if (budgetDay >= 1200) {
 } 
 
 //1) Объявить функцию getExpensesMonth. Функция возвращает сумму всех обязательных расходов за месяц
-function getExpensesMonth(a, b){
-  return a + b
+function getExpensesMonth(){
+  return Number(amount1) + Number(amount2);
 }
-let sumAmount = (getExpensesMonth(Number(amount1), Number(amount2)));
-
-console.log(sumAmount);
+getExpensesMonth();
