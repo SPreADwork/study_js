@@ -72,3 +72,9 @@ function getExpensesMonth(){
   return Number(amount1) + Number(amount2);
 }
 getExpensesMonth();
+
+// 2) Объявить функцию getAccumulatedMonth. Функция возвращает Накопления за месяц (Доходы минус расходы)
+function getAccumulatedMonth() {
+    return Number(money) - Number(getExpensesMonth());
+}
+getAccumulatedMonth();
