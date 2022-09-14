@@ -16,7 +16,6 @@ if (deposit === 'да') {
 } else {
     deposit = 'Неправельный ввод!';
 }
-console.log(deposit);
 
 /* 5) Спросить у пользователя по 2 раза каждый вопрос и записать ответы в разные переменные 
 “Введите обязательную статью расходов?” (например expenses1, expenses2)
@@ -29,16 +28,33 @@ const amount2 = prompt('Во сколько это обойдется?', '1000')
 
 const mission = 200000; // запланируванная сумма
 const period = 12;
-// console.log(typeof(money), typeof(income), typeof(deposit));
-// console.log(addExpenses.length);
-// console.log('Период равен ' + period + ' месяцев');
-// console.log('Цель заработать ' + mission + '$');
-// console.log(addExpenses.toLowerCase(), addExpenses.split(', '));
+console.log(typeof(money), typeof(income), typeof(deposit));
+console.log(addExpenses.toLowerCase(), addExpenses.split(', '));
 
-// 7) Зная budgetMonth, посчитать за сколько месяцев будет достигнута цель mission, вывести в консоль, округляя в большую сторону (методы объекта Math в помощь)
-console.log('Цель будет достигнута за :', Math.ceil(mission / budgetMonth) + ' месяцев');
 
-// 8) Поправить budgetDay учитывая бюджет на месяц, а не месячный доход. Вывести в консоль  округлив в меньшую сторону 
+//1) Объявить функцию getExpensesMonth. Функция возвращает сумму всех обязательных расходов за месяц
+function getExpensesMonth(){
+  return Number(amount1) + Number(amount2);
+}
+getExpensesMonth();
+console.log(getExpensesMonth());
+
+// 2) Объявить функцию getAccumulatedMonth. Функция возвращает Накопления за месяц (Доходы минус расходы)
+function getAccumulatedMonth() {
+    return Number(money) - Number(getExpensesMonth());
+}
+getAccumulatedMonth();
+
+// Объявить переменную accumulatedMonth и присвоить ей результат вызова функции getAccumulatedMonth 
+let accumulatedMonth = getAccumulatedMonth();
+
+// Объявить функцию getTargetMonth. Подсчитывает за какой период будет достигнута цель, зная результат месячного накопления (accumulatedMonth) и возвращает результат
+function getTargetMonth() {
+    return Math.ceil(mission / accumulatedMonth);
+}
+getTargetMonth();
+console.log('Срок достижения цели :', (getTargetMonth() + ' месяцев'));
+// Поправить budgetDay учитывая бюджет на месяц, а не месячный доход. Вывести в консоль  округлив в меньшую сторону 
 const budgetDay = accumulatedMonth / 30; // дневной бюджет
 console.log('Бюджет на день:', Math.floor(budgetDay));
 
@@ -58,24 +74,3 @@ if (budgetDay >= 1200) {
 } else if (budgetDay < 0) {
     console.log('Что то пошло не так');   
 } 
-
-//1) Объявить функцию getExpensesMonth. Функция возвращает сумму всех обязательных расходов за месяц
-function getExpensesMonth(){
-  return Number(amount1) + Number(amount2);
-}
-getExpensesMonth();
-
-// 2) Объявить функцию getAccumulatedMonth. Функция возвращает Накопления за месяц (Доходы минус расходы)
-function getAccumulatedMonth() {
-    return Number(money) - Number(getExpensesMonth());
-}
-getAccumulatedMonth();
-
-// Объявить переменную accumulatedMonth и присвоить ей результат вызова функции getAccumulatedMonth 
-let accumulatedMonth = getAccumulatedMonth();
-
-// Объявить функцию getTargetMonth. Подсчитывает за какой период будет достигнута цель, зная результат месячного накопления (accumulatedMonth) и возвращает результат
-function getTargetMonth() {
-    return Math.ceil(mission / accumulatedMonth);
-}
-getTargetMonth();
