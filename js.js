@@ -27,14 +27,6 @@ const amount1 = prompt('Во сколько это обойдется?', '500');
 const expenses2 = prompt('Введите обязательную статью расходов?', 'транспорт, комуналка');
 const amount2 = prompt('Во сколько это обойдется?', '1000');
 
-// 6) Вычислить бюджет на месяц, учитывая обязательные расходы, сохранить в новую переменную budgetMonth и вывести результат в консоль
-let budgetMonth = +money - (Number(amount1) + Number(amount2)); 
-if (Number(budgetMonth)) {
-    console.log('Бюджет на месяц:', budgetMonth);
-} else {
-    console.log('Где-то есть ошибка');
-}
-
 const mission = 200000; // запланируванная сумма
 const period = 12;
 // console.log(typeof(money), typeof(income), typeof(deposit));
@@ -47,7 +39,7 @@ const period = 12;
 console.log('Цель будет достигнута за :', Math.ceil(mission / budgetMonth) + ' месяцев');
 
 // 8) Поправить budgetDay учитывая бюджет на месяц, а не месячный доход. Вывести в консоль  округлив в меньшую сторону 
-const budgetDay = budgetMonth / 30; // дневной бюджет
+const budgetDay = accumulatedMonth / 30; // дневной бюджет
 console.log('Бюджет на день:', Math.floor(budgetDay));
 
 /* 9) Написать конструкцию условий (расчеты приведены в рублях)	
