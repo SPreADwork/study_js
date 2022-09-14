@@ -78,3 +78,6 @@ function getAccumulatedMonth() {
     return Number(money) - Number(getExpensesMonth());
 }
 getAccumulatedMonth();
+
+// Объявить переменную accumulatedMonth и присвоить ей результат вызова функции getAccumulatedMonth 
+let accumulatedMonth = getAccumulatedMonth();
