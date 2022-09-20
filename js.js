@@ -1,12 +1,15 @@
 'use strict';
-const money = prompt('Ваш месячный доход?'); // доход за месяц
-const income = 'Фриланс'; // доп. доход
-const addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'продукты, транспорт, комуналка'); // расходы
-// Спросить у пользователя “Есть ли у вас депозит в банке?” и сохранить данные в переменной deposit (булево значение true/false)
 
+let isNumber = function(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n)
+}
+
+let money, // доход за месяц
+    income = 'Фриланс', // доп. доход
+    addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'продукты, транспорт, комуналка'); // расходы
+// Спросить у пользователя “Есть ли у вас депозит в банке?” и сохранить данные в переменной deposit (булево значение true/false)
 // Вариант 1
 // const deposit = confirm('Есть ли у вас депозит в банке?');
-
 // Вариант 2
 let deposit = prompt('Есть ли у вас депозит в банке?', 'да/нет');
 if (deposit === 'да') {
@@ -17,8 +20,19 @@ if (deposit === 'да') {
     deposit = 'Неправельный ввод!';
 }
 
-const mission = 200000; // запланируванная сумма
-const period = 12;
+let mission = 200000, // запланируванная сумма
+    period = 12;
+
+let start = function () {
+    money = prompt('Ваш месячный доход?');
+
+    while (!isNumber(money)) {   // isNaN(money) если переменная money не число      
+          money = prompt('Ваш месячный доход?');
+    }
+};
+
+start();
+
 console.log(typeof(money), typeof(income), typeof(deposit));
 console.log(addExpenses.toLowerCase(), addExpenses.split(', '));
 
