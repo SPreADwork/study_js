@@ -17,26 +17,24 @@ if (deposit === 'да') {
     deposit = 'Неправельный ввод!';
 }
 
-/* 5) Спросить у пользователя по 2 раза каждый вопрос и записать ответы в разные переменные 
-“Введите обязательную статью расходов?” (например expenses1, expenses2)
-“Во сколько это обойдется?” (например amount1, amount2)
-в итоге 4 вопроса и 4 разные переменных */
-// const expenses1 = prompt('Введите обязательную статью расходов?', 'продукты');
-// const amount1 = prompt('Во сколько это обойдется?', '500');
-// const expenses2 = prompt('Введите обязательную статью расходов?', 'транспорт, комуналка');
-// const amount2 = prompt('Во сколько это обойдется?', '1000');
-
 const mission = 200000; // запланируванная сумма
 const period = 12;
 console.log(typeof(money), typeof(income), typeof(deposit));
 console.log(addExpenses.toLowerCase(), addExpenses.split(', '));
 
+let expenses1, expenses2;
 
 //1) Объявить функцию getExpensesMonth. Функция возвращает сумму всех обязательных расходов за месяц
 function getExpensesMonth(){
     let sum = 0;
 
     for (let i = 0; i <2; i++) {
+
+        if (i === 0) {
+            expenses1 = prompt('Введите обязательную статью расходов?', 'продукты');   
+        } else if (i === 1) {
+            expenses2 = prompt('Введите обязательную статью расходов?', 'транспорт, комуналка');
+        }
         sum += +prompt('Во сколько это обойдется?');
     }
 console.log(sum);
