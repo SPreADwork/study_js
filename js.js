@@ -23,15 +23,12 @@ if (deposit === 'да') {
 let mission = 200000, // запланируванная сумма
     period = 12;
 
-let start = function () {
-    money = prompt('Ваш месячный доход?');
+do {
+     money = prompt('Ваш месячный доход?');
+    } while (!isNumber(money));  // isNaN(money) если переменная money не число     
+    
 
-    while (!isNumber(money)) {   // isNaN(money) если переменная money не число      
-          money = prompt('Ваш месячный доход?');
-    }
-};
 
-start();
 
 console.log(typeof(money), typeof(income), typeof(deposit));
 console.log(addExpenses.toLowerCase(), addExpenses.split(', '));
