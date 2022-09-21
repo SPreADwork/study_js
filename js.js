@@ -46,7 +46,9 @@ function getExpensesMonth(){
         } else if (i === 1) {
             expenses2 = prompt('Введите обязательную статью расходов?', 'транспорт, комуналка');
         }
+     do  {
         sum += +prompt('Во сколько это обойдется?');
+     } while (!isNumber(sum));
     }
 console.log(sum);
   return sum;
@@ -71,7 +73,13 @@ function getTargetMonth() {
     return Math.ceil(mission / accumulatedMonth);
 }
 getTargetMonth();
-console.log('Срок достижения цели :', (getTargetMonth() + ' месяцев'));
+
+if (getTargetMonth() > 0) {
+    console.log('Срок достижения цели :', (getTargetMonth() + ' месяцев'));
+} else {
+    console.log('Цель не будет достигнута');
+}
+
 // Поправить budgetDay учитывая бюджет на месяц, а не месячный доход. Вывести в консоль  округлив в меньшую сторону 
 const budgetDay = accumulatedMonth / 30; // дневной бюджет
 console.log('Бюджет на день:', Math.floor(budgetDay));
