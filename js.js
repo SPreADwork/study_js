@@ -46,9 +46,12 @@ function getExpensesMonth(){
         } else if (i === 1) {
             expenses2 = prompt('Введите обязательную статью расходов?', 'транспорт, комуналка');
         }
-     do  {
-        sum += +prompt('Во сколько это обойдется?');
-     } while (!isNumber(sum));
+        let userImput;
+        do {
+        userImput = prompt('Во сколько это обойдется?');
+        } while (!isNumber(userImput));
+
+        sum += +userImput;
     }
 console.log(sum);
   return sum;
@@ -74,6 +77,7 @@ function getTargetMonth() {
 }
 getTargetMonth();
 
+//Если getTargetMonth возвращает нам отрицательное значение, то вместо “Цель будет достигнута” необходимо выводить “Цель не будет достигнута”
 if (getTargetMonth() > 0) {
     console.log('Срок достижения цели :', (getTargetMonth() + ' месяцев'));
 } else {
