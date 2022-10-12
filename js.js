@@ -14,6 +14,7 @@ let money, // доход за месяц
     start();
 
 let appData = {
+    budget: money,
     incame: {}, // доп. доход
     addIncome: [],
     expenses: {},
@@ -39,9 +40,6 @@ let appData = {
 // } else {
 //     deposit = 'Неправельный ввод!';
 // }
-
-console.log(typeof(money), typeof(appData.income), typeof(appData.deposit));
-
 
 let expenses1, expenses2;
 
