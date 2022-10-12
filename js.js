@@ -2,36 +2,46 @@
 
 let isNumber = function(n) {
     return !isNaN(parseFloat(n)) && isFinite(n)
-}
+};
 
 let money, // доход за месяц
-    income = 'Фриланс', // доп. доход
-    addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'продукты, транспорт, комуналка'); // расходы
-// Спросить у пользователя “Есть ли у вас депозит в банке?” и сохранить данные в переменной deposit (булево значение true/false)
-// Вариант 1
-// const deposit = confirm('Есть ли у вас депозит в банке?');
+    start = function(){
+        do {
+            money = prompt('Ваш месячный доход?');
+           } while (!isNumber(money));  // isNaN(money) если переменная money не число            
+    };
+
+    start();
+
+let appData = {
+    incame: {}, // доп. доход
+    addIncome: [],
+    expenses: {},
+    addExpenses: [],
+    deposit: false,
+    mission: 60000,
+    period: 12,
+    asking: function() {
+        let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'продукты, транспорт, комуналка');
+        appData.addExpenses = addExpenses.toLowerCase(), addExpenses.split(', ');
+        appData.deposit = confirm('Есть ли у вас депозит в банке?');
+
+    }
+};
+
+
 // Вариант 2
-let deposit = prompt('Есть ли у вас депозит в банке?', 'да/нет');
-if (deposit === 'да') {
-    deposit = true;
-} else if (deposit === 'нет') {
-    deposit = false;
-} else {
-    deposit = 'Неправельный ввод!';
-}
+// let deposit = prompt('Есть ли у вас депозит в банке?', 'да/нет');
+// if (deposit === 'да') {
+//     deposit = true;
+// } else if (deposit === 'нет') {
+//     deposit = false;
+// } else {
+//     deposit = 'Неправельный ввод!';
+// }
 
-let mission = 200000, // запланируванная сумма
-    period = 12;
+console.log(typeof(money), typeof(appData.income), typeof(appData.deposit));
 
-do {
-     money = prompt('Ваш месячный доход?');
-    } while (!isNumber(money));  // isNaN(money) если переменная money не число     
-    
-
-
-
-console.log(typeof(money), typeof(income), typeof(deposit));
-console.log(addExpenses.toLowerCase(), addExpenses.split(', '));
 
 let expenses1, expenses2;
 
@@ -53,7 +63,6 @@ function getExpensesMonth(){
 
         sum += +userImput;
     }
-console.log(sum);
   return sum;
 }
 
@@ -73,7 +82,7 @@ let accumulatedMonth = getAccumulatedMonth();
 
 // Объявить функцию getTargetMonth. Подсчитывает за какой период будет достигнута цель, зная результат месячного накопления (accumulatedMonth) и возвращает результат
 function getTargetMonth() {
-    return Math.ceil(mission / accumulatedMonth);
+    return Math.ceil(appData.mission / accumulatedMonth);
 }
 getTargetMonth();
 
