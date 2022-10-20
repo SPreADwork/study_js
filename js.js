@@ -14,43 +14,52 @@ let money, // доход за месяц
     start();
 
 let appData = {
-    budgetDay: 0,
-    budgetMonth: 0,
-    expensesMonth: 0,
-    budget: +money,
+    budgetDay: 0, // бьюджет на день 
+    budgetMonth: 0, // бьюджет на месяц
+    expensesMonth: 0, // расход за месяц
+    budget: +money, // доход за месяц
     incame: {}, // доп. доход
     addIncome: [],
     expenses: {},
-    addExpenses: [],
-    deposit: false,
-    mission: 60000,
+    addExpenses: [], // строка с перечислением дополнительных расходов
+    deposit: false, // наличие депозита в банке
+    mission: 60000, // желаемая цель (Какую сумму хотите накопить)
     period: 12,
     asking: function() {
         let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'продукты, транспорт, комуналка');
         appData.addExpenses = addExpenses.toLowerCase(), addExpenses.split(', ');
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
 
-        function getExpensesMonth(){
-            let sum = 0;
-        
-            for (let i = 0; i <2; i++) {
-        
-                if (i === 0) {
-                   appData.expenses.expenses1 = prompt('Введите обязательную статью расходов?', 'продукты');   
-                } else if (i === 1) {
-                    appData.expenses.expenses2 = prompt('Введите обязательную статью расходов?', 'транспорт, комуналка');
-                }
-                let userImput;
+        for (let i = 0; i < 2; i++) {
+            appData.expenses[prompt('Введите обязательную статью расходов?', 'транспорт, комуналка')] = (function() {
+            let userImput;
                 do {
                 userImput = prompt('Во сколько это обойдется?');
                 } while (!isNumber(userImput));
-        
-                sum += +userImput;
-            }
-          return sum;
+                return +userImput;
+            })();
         }
-        appData.expensesMonth = getExpensesMonth();
-        console.log('Расходы за месяц: ' + appData.expensesMonth);
+        // function getExpensesMonth(){
+        //     let sum = 0;
+        
+        //     for (let i = 0; i < 2; i++) {
+        
+        //         if (i === 0) {
+        //            appData.expenses.expenses1 = prompt('Введите обязательную статью расходов?', 'продукты');   
+        //         } else if (i === 1) {
+        //             appData.expenses.expenses2 = prompt('Введите обязательную статью расходов?', 'транспорт, комуналка');
+        //         }
+        //         let userImput;
+        //         do {
+        //         userImput = prompt('Во сколько это обойдется?');
+        //         } while (!isNumber(userImput));
+        
+        //         sum += +userImput;
+        //     }
+        //   return sum;
+        // }
+        // appData.expensesMonth = getExpensesMonth();
+        // console.log('Расходы за месяц: ' + appData.expensesMonth);
     }
 };
 appData.asking();
