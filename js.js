@@ -39,63 +39,30 @@ let appData = {
                 return +userImput;
             })();
         }
-        // function getExpensesMonth(){
-        //     let sum = 0;
         
-        //     for (let i = 0; i < 2; i++) {
-        
-        //         if (i === 0) {
-        //            appData.expenses.expenses1 = prompt('Введите обязательную статью расходов?', 'продукты');   
-        //         } else if (i === 1) {
-        //             appData.expenses.expenses2 = prompt('Введите обязательную статью расходов?', 'транспорт, комуналка');
-        //         }
-        //         let userImput;
-        //         do {
-        //         userImput = prompt('Во сколько это обойдется?');
-        //         } while (!isNumber(userImput));
-        
-        //         sum += +userImput;
-        //     }
-        //   return sum;
-        // }
-        // appData.expensesMonth = getExpensesMonth();
-        // console.log('Расходы за месяц: ' + appData.expensesMonth);
-    }
-};
-appData.asking();
-console.log(appData);
-
-// 2) Объявить функцию getAccumulatedMonth. Функция возвращает Накопления за месяц (Доходы минус расходы)
-function getAccumulatedMonth() {
+    },
+    getExpensesMonth: function (){
+            
+    },
+         
+    // 2) Объявить функцию getAccumulatedMonth. Функция возвращает Накопления за месяц (Доходы минус расходы)
+    getAccumulatedMonth: function() {
     return Number(appData.budget) - appData.expensesMonth;
-}
-appData.budgetMonth = getAccumulatedMonth();
+    },
 
-// Объявить функцию getTargetMonth. Подсчитывает за какой период будет достигнута цель, зная результат месячного накопления (accumulatedMonth) и возвращает результат
-function getTargetMonth() {
+    // Объявить функцию getTargetMonth. Подсчитывает за какой период будет достигнута цель, зная результат месячного накопления (accumulatedMonth) и возвращает результат
+    getTargetMonth: function() {
     return Math.ceil(appData.mission / appData.budgetMonth);
-}
-appData.period = getTargetMonth();
+    },
 
-//Если getTargetMonth возвращает нам отрицательное значение, то вместо “Цель будет достигнута” необходимо выводить “Цель не будет достигнута”
-if (appData.period > 0) {
-    console.log('Срок достижения цели :', (appData.period + ' месяцев'));
-} else {
-    console.log('Цель не будет достигнута');
-}
+    /* 9) Написать конструкцию условий (расчеты приведены в рублях)	
+    Если budgetDay больше 1200, то “У вас высокий уровень дохода”
+    Если budgetDay больше 600 и меньше 1200, то сообщение “У вас средний уровень дохода”
+    Если budgetDay меньше 600 то в консоль вывести сообщение “К сожалению у вас уровень дохода ниже среднего”
+    Если отрицательное значение то вывести “Что то пошло не так”
+    Учесть варианты 0, 600 и 1200 */
 
-// Поправить budgetDay учитывая бюджет на месяц, а не месячный доход. Вывести в консоль  округлив в меньшую сторону 
-appData.budgetDay = appData.budgetMonth / 30; // дневной бюджет
-console.log('Бюджет на день:', Math.floor(appData.budgetDay));
-
-/* 9) Написать конструкцию условий (расчеты приведены в рублях)	
-Если budgetDay больше 1200, то “У вас высокий уровень дохода”
-Если budgetDay больше 600 и меньше 1200, то сообщение “У вас средний уровень дохода”
-Если budgetDay меньше 600 то в консоль вывести сообщение “К сожалению у вас уровень дохода ниже среднего”
-Если отрицательное значение то вывести “Что то пошло не так”
-Учесть варианты 0, 600 и 1200 */
-
-let getStatusIncome = function(){
+    getStatusIncome: function(){
     if (appData.budgetDay >= 1200) {
         return('У вас высокий уровень дохода');
     } else if (appData.budgetDay >= 600 && appData.budgetDay < 1200 ) {
@@ -105,8 +72,36 @@ let getStatusIncome = function(){
     } else if (appData.budgetDay < 0) {
         return('Что то пошло не так');   
     } 
+}
+
+
+
+
+
 };
-console.log(getStatusIncome());
+appData.asking();
+console.log(appData);
+
+// appData.expensesMonth = function() {
+//     for (let key in appData.expenses) {
+
+//     }
+// };
+
+// console.log('Расходы за месяц: ' + appData.expensesMonth);
+
+
+// // Если getTargetMonth возвращает нам отрицательное значение, то вместо “Цель будет достигнута” необходимо выводить “Цель не будет достигнута”
+// if (appData.period > 0) {
+//     console.log('Срок достижения цели :', (appData.period + ' месяцев'));
+// } else {
+//     console.log('Цель не будет достигнута');
+// }
+
+// // Поправить budgetDay учитывая бюджет на месяц, а не месячный доход. Вывести в консоль  округлив в меньшую сторону 
+// appData.budgetDay = appData.budgetMonth / 30; // дневной бюджет
+// console.log('Бюджет на день:', Math.floor(appData.budgetDay));
+
 
 
 
