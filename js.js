@@ -41,8 +41,11 @@ let appData = {
         }
         
     },
-    getExpensesMonth: function (){
-            
+    getExpensesMonth: function() {
+        // appData.expensesMonth = 0;
+       for (let key in appData.expenses) {
+        appData.expensesMonth += appData.expenses[key]; 
+        }     
     },
          
     // 2) Объявить функцию getAccumulatedMonth. Функция возвращает Накопления за месяц (Доходы минус расходы)
@@ -80,6 +83,7 @@ let appData = {
 
 };
 appData.asking();
+appData.getExpensesMonth();
 console.log(appData);
 
 // appData.expensesMonth = function() {
