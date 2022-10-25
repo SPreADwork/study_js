@@ -42,15 +42,15 @@ let appData = {
         
     },
     getExpensesMonth: function() {
-        // appData.expensesMonth = 0;
        for (let key in appData.expenses) {
         appData.expensesMonth += appData.expenses[key]; 
         }     
     },
          
     // 2) Объявить функцию getAccumulatedMonth. Функция возвращает Накопления за месяц (Доходы минус расходы)
-    getAccumulatedMonth: function() {
-    return Number(appData.budget) - appData.expensesMonth;
+    getBudget: function() {
+    appData.budgetMonth = Number(appData.budget) - appData.expensesMonth;
+    appData.budgetDay = appData.budgetMonth / 30;
     },
 
     // Объявить функцию getTargetMonth. Подсчитывает за какой период будет достигнута цель, зная результат месячного накопления (accumulatedMonth) и возвращает результат
@@ -84,13 +84,10 @@ let appData = {
 };
 appData.asking();
 appData.getExpensesMonth();
+appData.getBudget();
 console.log(appData);
 
-// appData.expensesMonth = function() {
-//     for (let key in appData.expenses) {
 
-//     }
-// };
 
 // console.log('Расходы за месяц: ' + appData.expensesMonth);
 
