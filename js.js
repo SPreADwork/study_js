@@ -55,7 +55,7 @@ let appData = {
 
     // Объявить функцию getTargetMonth. Подсчитывает за какой период будет достигнута цель, зная результат месячного накопления (accumulatedMonth) и возвращает результат
     getTargetMonth: function() {
-        appData.getTargetMonth = Math.ceil(appData.mission / appData.budgetMonth);
+      return  Math.ceil(appData.mission / appData.budgetMonth);
     },
 
     /* 9) Написать конструкцию условий (расчеты приведены в рублях)	
@@ -82,7 +82,6 @@ let appData = {
 appData.asking();
 appData.getExpensesMonth();
 appData.getBudget();
-appData.getTargetMonth();
 console.log(appData);
 
 
@@ -98,7 +97,7 @@ if (appData.getTargetMonth > 0) {
 console.log(appData.getStatusIncome());
 
 for (let key in appData) {
-    console.log('Наша программа включает в себя данные: ' + key + ' Значение: ' + appData[key]);
+    console.log('Наша программа включает в себя данные: ' + key + ' - ' + appData[key]);
 }
 
 
