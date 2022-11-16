@@ -137,6 +137,8 @@ for (let key in appData) {
     console.log('Наша программа включает в себя данные: ' + key + ' - ' + appData[key]);
 }
 
+console.log('задание 2 : ' + appData.addExpenses.split(', ').map(elementArr => elementArr[0].toUpperCase() + elementArr.substring(1)).join(', '));
+
 
 
 
