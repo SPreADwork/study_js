@@ -24,8 +24,8 @@ let impAddItionalExpenses = document.querySelector('.additional_expenses-item');
 let impDepositAmount = document.querySelector('.deposit-amount');
 let impDepositPercent = document.querySelector('.deposit-percent');
 let impTargetAmount = document.querySelector('.target-amount');
-let impPeriodSelect = document.querySelector('.period-select');
-console.log(impPeriodSelect);
+let impPeriodSelect = document.querySelector('.period-select'); // range
+
 
 
 
