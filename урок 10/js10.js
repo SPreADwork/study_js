@@ -7,3 +7,5 @@ books[0].appendChild(book[2]);
 books[0].insertBefore(book[4], book[3]);
 // заменить задний фон
 document.querySelector('body').style.backgroundImage = 'url(./image/profile.jpg)';
+
+book[4].querySelector('a').textContent = 'Книга 3. this и Прототипы Объектов';
