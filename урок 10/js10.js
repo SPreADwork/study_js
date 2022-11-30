@@ -20,6 +20,11 @@ chapters[1].insertBefore(topic2[2], topic2[10]);
 // восстановить порядок главы №5
 let topic5 = chapters[4].querySelectorAll('li');
 chapters[4].insertBefore(topic5[2], topic5[6]);
-chapters[4].insertBefore(topic5[9], topic5[3]);
+chapters[4].insertBefore(topic5[9], topic5[3]); // Глава 8: За пределами ES6
 chapters[4].insertBefore(topic5[5], topic5[8]);
-console.log(topic5);
+// в книге №6 добавить "Главу 8"
+let newElem = document.createElement('li');
+newElem.textContent = 'Глава 8: За пределами ES6';
+chapters[5].appendChild(newElem);
+let topic6 = chapters[5].querySelectorAll('li');
+chapters[5].insertBefore(topic6[10], topic6[9]);
